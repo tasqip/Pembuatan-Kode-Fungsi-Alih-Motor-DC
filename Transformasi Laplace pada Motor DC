@@ -1,0 +1,27 @@
+from sympy import symbols, Function, Eq, diff, laplace_transform
+
+# Definisi simbol
+t, s = symbols('t s')
+i = Function('i')(t)
+omega = Function('omega')(t)
+V, L, R, K_e, K_t, J, B = symbols('V L R K_e K_t J B')
+
+# 1. Persamaan Listrik Motor DC
+eq1 = Eq(V, L*diff(i, t) + R*i + K_e*omega)
+print("Persamaan Listrik Motor DC:")
+print(eq1)
+
+# Transformasi Laplace dari Persamaan Listrik
+laplace_eq1 = laplace_transform(eq1.lhs - eq1.rhs, t, s)
+print("Transformasi Laplace Persamaan Listrik Motor DC:")
+print(laplace_eq1)
+
+# 2. Persamaan Mekanik Motor DC
+eq2 = Eq(J*diff(omega, t), K_t*i - B*omega)
+print("Persamaan Mekanik Motor DC:")
+print(eq2)
+
+# Transformasi Laplace dari Persamaan Mekanik
+laplace_eq2 = laplace_transform(eq2.lhs - eq2.rhs, t, s)
+print("Transformasi Laplace Persamaan Mekanik Motor DC:")
+print(laplace_eq2)
