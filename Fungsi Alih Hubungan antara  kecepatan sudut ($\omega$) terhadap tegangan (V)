@@ -1,0 +1,17 @@
+import sympy as sp
+
+# Definisikan simbol
+V, omega, R, L, K = sp.symbols('V omega R L K')
+
+# Misalkan hubungan antara kecepatan sudut (omega) dan tegangan (V) sebagai:
+# V = K * omega + R * omega
+# Ini hanyalah contoh hubungan, sesuaikan dengan hubungan yang relevan untuk sistem yang dimaksud.
+
+# Tentukan persamaan tegangan dalam bentuk simbolik
+persamaan = sp.Eq(V, K * omega + R * omega)
+
+# Lakukan perhitungan untuk omega sebagai fungsi dari V
+omega_solusi = sp.solve(persamaan, omega)
+
+# Tampilkan hasilnya
+print(f"Kecepatan sudut (omega) sebagai fungsi tegangan (V) adalah: {omega_solusi[0]}")
