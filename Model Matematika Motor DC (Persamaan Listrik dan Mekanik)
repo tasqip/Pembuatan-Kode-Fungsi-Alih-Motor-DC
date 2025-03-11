@@ -1,0 +1,17 @@
+from sympy import symbols, Function, Eq, diff
+
+# Definisi simbol
+t = symbols('t')
+i = Function('i')(t)
+omega = Function('omega')(t)
+V, L, R, K_e, K_t, J, B = symbols('V L R K_e K_t J B')
+
+# 1. Persamaan Listrik Motor DC
+eq1 = Eq(V, L*diff(i, t) + R*i + K_e*omega)
+print("Persamaan Listrik Motor DC:")
+print(eq1)
+
+# 2. Persamaan Mekanik Motor DC
+eq2 = Eq(J*diff(omega, t), K_t*i - B*omega)
+print("Persamaan Mekanik Motor DC:")
+print(eq2)
